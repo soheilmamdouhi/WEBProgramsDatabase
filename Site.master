@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title><%: Page.Title %></title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <asp:PlaceHolder runat="server">           
+        <script src="<%: ResolveUrl("~/Scripts/modernizr-2.5.3.js") %>"></script>
+    </asp:PlaceHolder>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+	<style type="text/css">
+.auto-style1 {
+	text-decoration: none;
+}
+</style>
+</head>
+<body>
+    <form runat="server">
+    <asp:ScriptManager runat="server">
+        <Scripts>
+            <asp:ScriptReference Name="jquery" />
+            <asp:ScriptReference Name="jquery.ui.combined" />
+        </Scripts>
+    </asp:ScriptManager>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">Soheil - ProgramsDatabase</p>
+            </div>
+            <div class="float-right">
+                
+                <nav>
+                    <ul id="menu">
+                        <li><a runat="server" href="~/Default.aspx">Search</a></li>
+                        <li><a runat="server" href="~/Edit.aspx">Edit</a></li>
+                        <li><a runat="server" href="~/EditPacks.aspx">Edit Packs</a></li>
+                        <li><a runat="server" href="~/Accuweather.aspx">Accuweather</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+        <section class="content-wrapper main-content clear-fix">
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>
+                    &copy; <%: DateTime.Now.Year %> - 
+					<a href="mailto:soheilmamdouhi2003@gmail.com" class="auto-style1">Soheil Mamdouhi</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    </form>
+</body>
+</html>
